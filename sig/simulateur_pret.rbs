@@ -1,0 +1,10 @@
+class SimulateurPret
+  attr_reader montant_initial: Integer
+  attr_reader taux: Integer
+  attr_reader duree_en_mois: Integer
+  attr_reader mensualite: Float | Integer
+  def initialize: (montant_initial: Integer, taux: Integer, duree_en_mois: Integer, echeance?: Float | Integer) -> void
+  def total_interet_annee: (annee: Integer) -> (Float | Integer)
+  private
+  def calcul_interet_mois_courant: (capital: Float | Integer) -> (Float | Integer)
+end

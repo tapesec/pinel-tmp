@@ -1,0 +1,5 @@
+class DeclarationRevenu
+  def initialize: () -> void
+  def ajoute_revenu_annuel: (revenus: Integer) -> void
+  def declare_versements_per: (versements: Integer) -> void
+end

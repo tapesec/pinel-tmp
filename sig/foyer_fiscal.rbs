@@ -1,0 +1,10 @@
+class FoyerFiscal
+
+  POURCENT_DEDUCTION_FORFAITAIRE: Integer
+  def initialize: (nombre_parts: Integer) -> void
+
+  def revenu_fiscal_de_reference_pour_nombre_de_part: (nombre_parts: Integer) -> Integer
+  def ajoute_revenu_annuel: (revenus: Integer) -> void
+
+  def revenu_net_imposable: () -> Integer
+end

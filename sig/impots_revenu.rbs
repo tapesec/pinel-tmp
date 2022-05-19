@@ -1,0 +1,39 @@
+class ImpotsRevenu
+  attr_reader foyer_fiscal: ::FoyerFiscal
+  attr_reader declaration_impot: DeclarationRevenu
+  attr_reader versements_per: Integer
+  attr_reader declaration2044: Declaration2044
+  REDUCTION_PAR_DEMI_PART: Integer
+  BASE_COUPLE_FISCAL: Integer
+  TRANCHES_MARGINALES: Array[{ revenu_min: Integer, revenu_max: Integer | Float, taux: Integer, niveau: Integer }]
+  POURCENT_DEDUCTION_FORFAITAIRE: Integer
+  PASS: Integer
+  CREDIT_IMPOT_MAX_EPARGNE: Integer
+
+  def initialize: (foyer_fiscal: ::FoyerFiscal, declaration_impot: DeclarationRevenu) -> void
+  def montant_a_payer: () -> Integer
+  def tmi_in_percent: () -> Integer
+  def a_payer_pour_tranche_complete: (niveau_tranche: Integer) -> Integer
+  def calcul_reduction_per: () -> resultatReductionPer
+  def plafond_versement_per_deduc: () -> Integer
+  def revenu_net_imposable: () -> Integer
+  def rni_sans_deduction_per: () -> Integer
+  def ajoute_declaration2044: (declaration: Declaration2044) -> Integer
+
+  private
+
+  def calcul_tmi_et_a_payer: -> { a_payer: Integer, tmi: Integer }
+  def calcul_tmi: (revenu: Integer) -> Integer
+  def calcul_quotient_familial: (nombre_parts: Integer | Float) -> Integer
+  def calcul_ir_avec_plafond_qf: (revenu: Integer) -> Integer
+  def calcul_plafond_ci_per: () -> Integer
+  def versement_per_deductible: () -> Integer
+  def base_calcul_tranches_ir: (revenu: Integer, nombre_parts: Integer | Float) -> Integer
+  def revenu_au_dessus_tranche: (revenu: Integer, current_tranche: { revenu_min: Integer, revenu_max: Integer | Float, taux: Integer, niveau: Integer }) -> bool
+  def revenu_in_current_tranche: (revenu: Integer, current_tranche: { revenu_min: Integer, revenu_max: Integer | Float, taux: Integer, niveau: Integer }) -> bool
+  def impot_of_current_tranche: (percent: Integer, revenu: Integer, tranche_min: Integer) -> Integer
+  def impot_tranche_complete: (tranche: { revenu_min: Integer, revenu_max: Integer | Float, taux: Integer, niveau: Integer }) -> Integer
+end
+
+
+type resultatReductionPer = { credit_impot_epargne: Integer, plafond_versement: Integer, versement_max_utile: Integer }

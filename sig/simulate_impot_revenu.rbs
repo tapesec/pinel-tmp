@@ -1,0 +1,5 @@
+class SimulateImpotRevenu
+  def execute: (revenu_annuel: Integer, nombre_parts: Float | Integer, deduction_travail_domicile: Integer, deduction_epargne: Integer) -> avisImpot
+end
+
+type avisImpot = { a_payer: Integer }

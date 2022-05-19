@@ -1,0 +1,4 @@
+class PrelevementsSociaux
+  TAUX_PRELEVEMENT_SOCIAUX: Float
+  def cout_prelevements_sociaux: (revenu: Integer) -> Integer
+end

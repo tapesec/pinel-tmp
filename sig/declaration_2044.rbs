@@ -1,0 +1,13 @@
+class Declaration2044
+  def initialize: () -> void
+  public
+  def ajoute_loyers_bruts: (loyers: Integer) -> void
+  def ded_gestion_locative: (montant: Integer) -> void
+  def ded_assurance_pno: (montant: Integer) -> void
+  def ded_travaux_entretien_rep: (montant: Integer) -> void
+  def ded_taxe_fonciere_sans_ordure: (montant: Integer) -> void
+  def ded_charges_coprop: (montant: Integer) -> void
+  def ded_interets_emprunt: (montant: Integer) -> void
+  def revenu_foncier_imposable: () -> Integer
+  def deficit_foncier_reportable: () -> bool
+end
