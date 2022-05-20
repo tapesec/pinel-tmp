@@ -30,13 +30,8 @@ class SimulateurPretTest < ActiveSupport::TestCase
   end
 
   test 'Doit calculer le montant fixe d’une échéance' do
-    capital = 100_000
-    taux = 1.1 / 100.to_f # %
-    taux_periodique = (taux / 12.to_f)
-    p taux_periodique
-    echeance = (capital * taux_periodique * (1 + taux_periodique)**(25 * 12)) / (((1 + taux_periodique)**(25 * 12)) - 1)
-    p echeance
     simulateur = SimulateurPret.new(100_000, 1.1, 300)
-    assert_equal 381.41, simulateur.mensualite, 'Pas le bon échéancier'
+    p simulateur.generate_echeancier
+    assert_equal 381.42, simulateur.generate_echeancier[0][0][:mensualite], 'Pas le bon échéancier'
   end
 end

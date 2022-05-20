@@ -47,8 +47,8 @@ class SimulateurPret
   private
 
   def mensualite
-    tp = taux_periodique
-    (@capital * tp * (1 + taux_periodique)**@duree_en_mois) / (((1 + tp)**@duree_en_mois) - 1)
+    tp = (@taux / 100.to_f) / 12.to_f
+    ((@capital * tp * (1 + tp)**@duree_en_mois) / (((1 + tp)**@duree_en_mois) - 1)).round(2)
   end
 
   def nouveau_capital(capital, capital_mensuel)
